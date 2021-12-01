@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: rgb(2, 12, 32);
+  padding: 25px 0px;
+}
+.navbar-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 23px !important;
+  font-weight: 800;
+}
+.navbar-brand:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar select {
+  border: 1px solid white !important;
+  background: white !important;
+  color: rgba(5, 4, 66, 0.926) !important;
+  width: 300px;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+.navbar select option {
+  margin: 40px;
+  background: white !important;
+  color: rgb(15, 38, 172) !important;
+  border: none;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+
+.T,.h,.e,.B {
+  font-size:xx-large;
+  font-weight: bold;
+}
+.T {color: red;}
+.h {color: purple;}
+.e {color: rgb(16, 35, 204);}
+.G {color: rgb(23, 217, 243);}
+
+.upload-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 7px;
+}
+.upload-button img {
+  height: 30px;
+}
+
+@media only screen and (max-width: 580px) {
+  .navbar-brand {
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .navbar {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .upload-button {
+    margin-top: 10px;
+  }
+}
