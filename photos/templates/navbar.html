@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../static/css/navbar.css" />
+  <link rel="stylesheet" href="  https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+  <link rel="icon" href="../static/assets/favicon.png" type="images/icon">
+
+</head>
+
+<body>
+  <nav class="navbar" style="background-color: rgb(2, 2, 29);">
+    <div class="nav-logo">
+      <img src="../static/assets/favicon.png" alt="" height="40" href="/"/>
+    <a class="navbar-brand" href="/" style=" font-size:xx-large; font-weight:bolder">
+      <span class="T" style="color: red;">T</span>
+      <span class="h" style="color: rgb(95, 8, 112);">h</span>
+      <span class="e" style="color: rgb(0, 47, 255);">e -</span>
+      <span class="G" style="color: rgb(0, 204, 255);">Gallery</span>
+    </a>
+     
+    </div>
+    <a class="navbar-item btn btn-info" href="/" style=" font-size:large; font-weight:bold">Home</a>
+
+    <form class="navbar-form" role="search" action="{% url 'query_image' %}">
+      <div class="input-group">
+        <input type="text" class="form-control btn-outline-light" placeholder="Search Image" name="image">
+        <div class="input-group-btn">
+          <button class="btn btn-info" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </form>
+
+    <form class="d-flex" role="search" action="{% url 'search_results' %}">
+      <select class="form-select btn-outline-info" aria-label="Default select example" name="image">
+        ``
+        <option hidden >Select Category</option>
+        <option value="nature">Nature</option>
+        <option value="technology">Technology</option>
+        <option value="animals">Animals</option>
+        <option value="adventure">Adventure</option>
+        <option value="people">People</option>
+        <option value="vehicles">Vehicles</option>
+        <option value="birds">Birds</option>
+        <option value="sunset">Sunset</option>
+        <option value="sea">Sea</option>
+        <option value="sky">Sky</option>
+        <option value="phones">Phones</option>
+        <option value="food">Food</option>
+      </select>
+      <button class="btn btn-info" type="submit">Go</button>
+    </form>
+
+    <a href="{% url 'upload_picture' %}" class="btn btn-info">
+      Upload
+    </a>
+  </nav>
+</body>
+
+</html>
