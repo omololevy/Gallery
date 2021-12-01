@@ -1,0 +1,66 @@
+{%extends 'base.html'%} {% block content %} {{ block.super}}
+
+<div class="container-fluid">
+  <div class="location_links mt-3">
+    <a class="btn btn-outline-info m-2 location-link" href="/">All</a>
+    <a class="btn btn-outline-info m-2 location-link" href="{% url 'filter_location' 1%}">Nairobi</a>
+    <a class="btn btn-outline-info m-2 location-link" href="{% url 'filter_location' 2%}">Mombasa</a>
+    <a class="btn btn-outline-info m-2 location-link" href="{% url 'filter_location' 3%}">Kisumu</a>
+    <a class="btn btn-outline-info m-2 location-link" href="{% url 'filter_location' 4%}">Nakuru</a>
+  </div>
+  <br />
+
+  <div class="row p-0 mt-1">
+    <div class="img-container p-3">
+      {% for picture in pictures %} 
+      {%if picture.image%}
+
+      <div class="image col-md-4">
+        <div class="image-cont">
+          <img src="{{picture.image.url}}" alt="img" data-bs-toggle="modal" data-bs-target="#{{ picture }}" />
+        </div>
+      </div>
+
+      {%endif%}
+
+      <div class="modal fade" id="{{picture}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header m-0 p-2">
+              <h4 class="modal-title" id="{{picture.id}}">{{picture}}</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body m-0 p-3">
+              {%if picture.image%}
+              <div class="modal-picture">
+                <img src="{{picture.image.url}}" alt="img" data-bs-toggle="modal" data-bs-target="#{{ picture }}" />
+              </div>
+              <p class="text-center mt-2">{{picture.description}}</p>
+              <div class="tag mb-2">
+                <h5 class="text-info">Category: {{picture.category}}</h5>
+                <h5 class="text-primary">Location: {{picture.location}}</h5>
+              </div>
+
+              {%endif%}
+
+              <div class="d-flex mb-4">
+                <input class="form-control input-lg mr-1" type="text" value="{{picture.image.url}}"
+                  id="moz{{picture.id}}.url" />
+                <button class="btn btn-info btn-sm mr-1" onclick="mycopyFunc('moz{{picture.id}}.url')">
+                  <i class="far fa-copy"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {%endfor%}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
