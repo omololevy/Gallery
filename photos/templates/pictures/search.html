@@ -1,0 +1,72 @@
+{%extends 'base.html'%} {% block content %} {{ block.super}}
+
+<div class="container-fluid">
+  <div class="row p-4 mt-1">
+    <div class="mt-1">
+      {% if pictures%}
+      <h5 class="text-center text-white">
+        <b> Found {{ pictures|length }} pictures of {{message}} </b>
+      </h5>
+      <hr />
+      {% else %}
+      <h5 class="text-center text-white">
+        <b> Found 0 pictures for the search term {{message}} </b>
+      </h5>
+      <hr />
+      {% endif %}
+    </div>
+    <div class="img-container">
+      {% for picture in pictures %} {%if picture.image%}
+
+      <div class="image col-md-4">
+        <div class="image-cont">
+          <img src="{{picture.image.url}}" alt="img" data-bs-toggle="modal" data-bs-target="#{{ picture }}" />
+        </div>
+      </div>
+
+      {%endif%}
+
+      <div class="modal fade" id="{{picture}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header m-0 p-2">
+              <h4 class="modal-title" id="{{picture.id}}">{{picture}}</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body m-0 p-3">
+              {%if picture.image%}
+              <div class="modal-picture">
+                <img src="{{picture.image.url}}" alt="img" data-bs-toggle="modal" data-bs-target="#{{ picture }}" />
+              </div>
+              <p class="text-center mt-2">{{picture.description}}</p>
+              <div class="tag mb-2">
+                <h5 class="text-info">Category: {{picture.category}}</h5>
+                <h5 class="text-primary">Location: {{picture.location}}</h5>
+              </div>
+
+              {%endif%}
+
+              <div class="d-flex mb-4">
+                <input class="form-control input-lg mr-1" type="text" value="{{picture.image.url}}"
+                  id="moz{{picture.id}}.url" />
+                <button class="btn btn-info btn-sm mr-1" onclick="mycopyFunc('moz{{picture.id}}.url')">
+                  <i class="far fa-copy"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">
+                  X
+                </button>
+              </div>
+              <!-- <
+            
+            -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {%endfor%}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
