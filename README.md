@@ -9,6 +9,14 @@ The Gallery is a django web application where users can view different photos. T
 
 ## Previews
 
+## Project live sites
+  * This is the live [link to the repo ](https://github.com/omololevy/Gallery) <br>
+  * This is the live [link to the app ](https://levygallery.herokuapp.com/)
+
+
+## Homepage Demo
+The app looks like this: 
+  ![Image](./photos/static/assets/demo.png)
 
 
 ## Author
