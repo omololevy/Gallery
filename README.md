@@ -18,7 +18,10 @@ The Gallery is a django web application where users can view different photos. T
 The app looks like this: 
   ![Image](./photos/static/assets/demo.png)
 
-
+## Admin Dashboard
+The admin dashboard for managing posted images looks like this: 
+  ![Image](./photos/static/assets/admin.png)
+  
 ## Author
 [Levy Omolo](https://github.com/omololevy/)
 ## User Story
